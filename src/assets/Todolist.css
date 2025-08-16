@@ -1,0 +1,141 @@
+/* --- Gaya Global & Latar Belakang --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* --- Kontainer Utama Aplikasi --- */
+.todo-app-container {
+  width: 100%;
+  max-width: 600px; /* Lebar maksimal agar tidak terlalu lebar di layar besar */
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 50px;
+}
+
+/* --- Header dan Judul --- */
+header h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* --- Form Input dan Tombol --- */
+form {
+  display: flex;
+  gap: 10px; /* Jarak antara input dan tombol */
+  margin-bottom: 30px;
+}
+
+input[type="text"] {
+  flex-grow: 1; /* Input akan mengisi ruang yang tersedia */
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+form button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #2980b9;
+}
+
+/* --- Daftar List (ol dan li) --- */
+main ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+main li {
+  display: flex;
+  justify-content: space-between; /* Teks di kiri, tombol di kanan */
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border-left: 5px solid #3498db;
+  word-break: break-word; /* Agar teks panjang tidak merusak layout */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+main li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+main li span {
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+main li button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+main li button:hover {
+  background-color: #c0392b;
+}
+
+/* --- Tampilan Responsif untuk Layar Kecil (Mobile) --- */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  
+  .todo-app-container {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  form {
+    flex-direction: column; /* Ubah form menjadi tumpukan vertikal */
+  }
+  
+  input[type="text"], form button {
+      width: 100%;
+      box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
+  }
+}

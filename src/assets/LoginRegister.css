@@ -1,0 +1,12 @@
+.container-login, .container-register {
+  display: flex;
+  justify-content: center;
+}
+
+.container-login form, .container-register form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: red;
+  padding: 2rem;
+}
