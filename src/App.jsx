@@ -1,10 +1,9 @@
-import IndexLoginRegister from "./Projeks/LoginRegister";
+import Waktu from "./Components/Latihan/Case2";
 
 function App() {
   return (
     <>
-    {/* <ConditionalRendering/> */}
-    <IndexLoginRegister/>
+    <Waktu/>
     </>
   );
 }

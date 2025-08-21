@@ -1,34 +1,42 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function Case() {
-  const [inputUser, setInputUser] = useState([]);
-  const [datas, setDatas] = useState("");
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (datas === "") {
-      alert("anda belum memasukan data coba diisi");
-      return;
-    };
-    setInputUser([...inputUser, datas]);
-    console.log(inputUser);
+export function LatihanUseeffect() {
+
+  const [search, setSearch] = useState("avengers");
+  const [filems, setFilms] = useState();
+  const inputRef = useRef(null)
+  const omdmApi = async () => {
+    const filem = await fetch(`http://www.omdbapi.com/?apikey=3b68268d&s=${search}`);
+    const dataFilm = await filem.json();
+    const data = dataFilm.Search;
+    setFilms(data);
   };
+
+  useEffect(() => {
+    inputRef.current.focus()
+  },[])
+
+  useEffect(() => {
+    omdmApi();
+  }, [search]);
 
   return (
     <>
-      <h1>todo List</h1>
-      {/* form input dari user  */}
-      <form action="" onSubmit={handleSubmit}>
-        <input type="text"  onChange={(e) => setDatas(e.target.value)} />
-
-        <button type="submit">Kirim</button>
-      </form>
-      <ul>
-        {
-          inputUser.map((item, index) => (
-            <li key={index}>{ item} <button >Hapus</button></li>
-  )) 
-        }
-      </ul>
+      <div className="flex flex-col  items-center mt-10">
+        <input type="text" ref={inputRef} placeholder="Cari Film" onChange={(e) => setSearch(e.target.value)} value={search} className="mt-4 px-2 py-1 border rounded" />
+        <div className="flex flex-wrap">
+          {filems && filems.length > 0 ? (
+            filems.map((film, index) => (
+              <div key={film.imdbID || index} className="m-2 p-2 border rounded w-40">
+                <img src={film.Poster} alt={film.Title} className="w-full h-40 object-cover mb-2" />
+                <p className="text-center font-bold">{film.Title}</p>
+              </div>
+            ))
+          ) : (
+            <p className="text-gray-500">Tidak ada data Film</p>
+          )}
+        </div>
+      </div>
     </>
   );
 }
