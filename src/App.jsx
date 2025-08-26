@@ -1,9 +1,9 @@
-import Waktu from "./Components/Latihan/Case2";
+import PomodoroApp from "./Components/Latihan/Case3";
 
 function App() {
   return (
     <>
-    <Waktu/>
+    <PomodoroApp/>
     </>
   );
 }
