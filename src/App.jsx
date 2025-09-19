@@ -1,12 +1,12 @@
-import PomodoroApp from "./Components/Latihan/Case3";
+import { Index } from "./Projeks/web/Index";
 
 function App() {
   return (
-    <>
-    <PomodoroApp/>
-    </>
+    <div>
+      
+      <Index/>
+    </div>
   );
 }
 
 export default App;
-
